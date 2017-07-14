@@ -9,7 +9,9 @@ Docker version 17.06.0-ce, build 02c1d87
 
 ## Docker Images 
 
-All Docker containers are based off [Docker images](https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/). Docker images are built up from a series of layers. Each layer represents an instruction or resulting block storage changes to the container's filesystem. Each layer except the very last one is read-only, so once an image is made, any changes to data in a running container are made on a separate R/W layer. Think of it as application layering where the first image layer is always a blank minimalistic starting block from [scratch](https://hub.docker.com/_/scratch/) and changes are done by installing dependencies or applications that you desire to package with your docker image. 
+All Docker containers are based off [Docker images](https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/). Docker images are built up from a series of layers. Each layer represents an instruction or resulting block storage changes to the container's filesystem. Each layer except the very last one is read-only, so once an image is made, any changes to data in a running container are made on a separate R/W layer. Think of it as application layering where the first image layer is always a blank minimalistic starting block from [scratch](https://hub.docker.com/_/scratch/) and changes are done by installing dependencies or applications that you desire to package with your docker image. See the visual below to illustrate the concept of image layering: 
+
+![docker image layers](./images/docker-images.png)
 
 You can store docker images in several places: 
 
