@@ -1,0 +1,63 @@
+---
+version: "2"
+services:
+  
+# WebServer-A
+  webserver-a:
+    image: "mayankt/webserver:a"
+    restart: always
+    networks:
+      sandbox:
+        ipv4_address: "192.168.13.11"
+    hostname: webserver-a
+
+# WebServer-B
+  webserver-b:
+    image: "mayankt/webserver:b"
+    restart: always
+    networks:
+      sandbox:
+        ipv4_address: "192.168.13.12"
+    hostname: webserver-b
+
+# NetScalet CPX
+  cpx:
+    image: "store/citrix/netscalercpx:12.0-41.16"
+    environment:
+      EULA: "yes"
+    restart: always
+    cap_add:
+      - NET_ADMIN
+    ulimits:
+      core: -1
+    networks:
+      sandbox:
+        ipv4_address: "192.168.13.20"
+    ports:
+      - "10000-10050:10000-10050"
+      - "9080:80"
+    hostname: ns-adc
+
+# IDE Environment 
+  nitro-ide:
+    image: "mayankt/nitro-ide"
+    restart: always
+    dns: 8.8.8.8
+    networks:
+      sandbox:
+        ipv4_address: "192.168.13.10"
+    ports:
+      - "9090:80"
+      - "9091:8000"
+# Update the next two lines to map to your local host directory where your git projects are stored.       
+    volumes:
+        - ${DATA_DIR}:/workspace:rw      
+    hostname: nitro-ide
+
+networks:
+  # defined sandbox network for docker containers
+  sandbox:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: "192.168.13.0/24"

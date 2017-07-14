@@ -1,6 +1,6 @@
 # Pulling from Docker Hub
 
-Before any container is run, a local copy of the image is always stored locally on the host. In this exercise we will pull a docker image from docker hub to the docker host. 
+Before any container is run, a local copy of the image is always stored locally on the host. In this exercise we will pull a docker image from docker hub onto the docker host. 
 
 ### Step 1
 

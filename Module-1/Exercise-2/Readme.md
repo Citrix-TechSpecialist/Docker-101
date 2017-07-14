@@ -19,7 +19,7 @@ Here is the breakdown of the command from above:
     * This will restart the container automatically if it crashes or if and when docker/host restart.
 
 * `--name=cpx-blog`
-    * This gives the container a name for more inuitive reference in later docker commands. Without a name parameter, the container will be randomly assigned a name and cen be refered to via the random name or the hash id of the container. 
+    * This gives the container a name for more intuitive reference in later docker commands. Without a name parameter, the container will be randomly assigned a name and can be referenced to via the random name or the hash id of the container. 
 
 * `-p 10000:80` 
     * This will expose port `10000` on the host and map it to port `80` on the container for access to the hosted website.

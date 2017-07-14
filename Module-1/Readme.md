@@ -19,7 +19,7 @@ You can store docker images in several places:
   4. [Private Docker registries](https://docs.docker.com/registry/deploying/#storage-customization)
   5. [In a tar archive](https://docs.docker.com/engine/reference/commandline/save/)
 
- We will mainly be concerning ourselves with pulling and pushing images from Docker Hub in this tutorial. 
+ We will mainly be concerning ourselves with **#1** pulling images from Docker Hub in this tutorial. 
 
 ## Exercises 
 

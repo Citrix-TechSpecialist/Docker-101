@@ -6,13 +6,13 @@ This module will be used at ServTech 2017 for TechTables. Cloud hosted resources
 
 # Accessing your VM
 
-1. Naviage to [https://portal.sl.americasreadiness.com](https://portal.sl.americasreadiness.com) to access your HTML5 bsed VM console through [Guacamole](https://vimeo.com/116207678).
+1. Navigate to [https://portal.sl.americasreadiness.com](https://portal.sl.americasreadiness.com) to access your HTML5 bsed VM console through [Guacamole](https://vimeo.com/116207678).
 
 2. Logon using your username and password : 
-    * **Username:** UserX
-    * **Password:** Password01
+    * **Username:** User**X**
+    * **Password:** XXXXXX (given out at the time of session)
 
-    > X in 'UserX' corresponds to your student number (1 through 7). For example, if you are student 1, you will logon with username `user1` and password `Password01`. 
+    > **X** in 'UserX' corresponds to your student number (1 through 7). For example, if you are student 1, you will logon with username `user1` and password `Password01`. 
 
 3. You will enter directly into a CLI interface of an Ubuntu Docker host which you will use to learn more about docker. A few things to note about the HTML5 based console: 
 	
