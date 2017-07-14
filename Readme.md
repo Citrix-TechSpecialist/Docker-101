@@ -28,4 +28,5 @@ In this tutorial, we are going to gain hands on experience and learn the basics 
 # Pre-requisites 
 
   * [Docker](https://docs.docker.com/engine/installation/)
-  	* You must install Docker in your local environment to do this tutorial. Follow the instructions in the link provided to install Docker on your operating system. If you are following along in a ILT course, skip ahead to [Module 0-B: Access your Docker Lab Development Box](./Module-0)
+  	* You must install Docker in your local environment to do this tutorial. Follow the instructions in the link provided to install Docker on your operating system. 
+  	* If you are following along in a ILT course, skip ahead to [Module 0-B: Access your Docker Lab Development Box](./Module-0)
