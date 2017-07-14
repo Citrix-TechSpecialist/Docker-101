@@ -110,11 +110,58 @@ Starting to configure...
 All done preforming configuration
 ```
 
-This indicates that the CPX has been configured successfully. It is loadbalancing Webserver A and Webserver B on its port 10000 using it's docker container IP in the sandbox docker network. Container port 10000 is mapped to host port 1000 so you can access your load balancer at [http://localhost:10000](http://localhost:10000) if you are following along in the lab locally.
+This indicates that the CPX has been configured successfully. It is load balancing Webserver A and Webserver B on its port 10000, using it's docker container IP in the sandbox docker network. Container port 10000 is mapped to host port 10000 so you can access your load balancer at [http://localhost:10000](http://localhost:10000) if you are following along in the lab locally.
 
 If you are following along in the sandbox environment, navigate your local browser to [http://userX-lb.sl.americasreadiness.com](http://userX-lb.sl.americasreadiness.com) where `X` denotes your user number in the FQDN. 
 
-### Conclusion 
+# Step 3
 
+To validate the configurations on the NetScaler CPX, enter the following commands on the Docker host to attach to the container's bash terminal: 
 
+`docker exec -it nitroide_cpx_1 /bin/bash` and you will have entered into CPX's CLI. 
+
+Then enter in the following NetScaler CLI commands to view configured vservers on the ADC with the following command: 
+
+`cli_script.sh "sh lb vservers"` and you will see an output similar to the following for the configured vserver: 
+
+```
+1)webserver (192.168.13.20:10000) - HTTPType: ADDRESS 
+State: UP
+Last state change was at Fri Jul 14 02:02:23 2017
+Time since last state change: 0 days, 01:30:54.410
+Effective State: UP
+Client Idle Timeout: 180 sec
+Down state flush: ENABLED
+Disable Primary Vserver On Down : DISABLED
+Appflow logging: ENABLED
+Port Rewrite : DISABLED
+No. of Bound Services :  2 (Total)  2 (Active)
+Configured Method: ROUNDROBINBackupMethod: NONE
+Mode: IP
+Persistence: NONE
+Vserver IP and Port insertion: OFF 
+Push: DISABLEDPush VServer: 
+Push Multi Clients: NO
+Push Label Rule: none
+L2Conn: OFF
+Skip Persistency: None
+Listen Policy: NONE
+IcmpResponse: PASSIVE
+RHIstate: PASSIVE
+New Service Startup Request Rate: 0 PER_SECOND, Increment Interval: 0
+Mac mode Retain Vlan: DISABLED
+DBS_LB: DISABLED
+Process Local: DISABLED
+Traffic Domain: 0
+TROFS Persistence honored: ENABLED
+Retain Connections on Cluster: NO
+```
+
+### Conclusion
+
+In this exercise we deployed a sandbox development environment with an IDE, NetScaler CPX, and 2 simple webservers using docker compose. We then logged into the IDE and cloned a repository with python code that will automatically configure the NetScaler CPX using the pre-defined input file `nsAutoCfg.json` that provides details on the desired configuration state of the CPX. We validated that the websites were being load balanced and saw the running load balancer configuration on the CPX. 
+
+Here is an overview of the procedures above: 
+
+![docker compose up](./images/docker-compose-up.gif)
 
