@@ -42,65 +42,65 @@ networks:                             # This defines that below are settings for
     driver: bridge                    # The type of network driver to use 
     ipam:                             # Details of the network and IP space
       config:                         # Configuration parameters 
-        - subnet: "192.168.13.0/24" 	# The desired subnet of the docker network
+        - subnet: "192.168.13.0/24"   # The desired subnet of the docker network
 ```
 
 
 ### WebServer A / B 
 
 ```
-webserver-a/b:  						# Service name
-    image: "mayankt/webserver:a" 		# Docker container image to use
-    restart: always 					# Restart the service if it fails or the host reboots
-    networks: 							# This describes the docker networks the containers will be part of
-      sandbox: 							# Docker network's name
-        ipv4_address: "192.168.13.11" 	# Static IP address of this service/container. You can leave this key:value out and to obtain an IP from Docker's IPAM
-    hostname: webserver-a 				# Desired hostname of the container
+webserver-a/b:                         # Service name
+    image: "mayankt/webserver:a"       # Docker container image to use
+    restart: always                    # Restart the service if it fails or the host reboots
+    networks:                          # This describes the docker networks the containers will be part of
+      sandbox:                         # Docker network's name
+        ipv4_address: "192.168.13.11"  # Static IP address of this service/container. You can leave this key:value out and to obtain an IP from Docker's IPAM
+    hostname: webserver-a              # Desired hostname of the container
 ```
 
-### NetScaler CPX 
+### [NetScaler CPX](http://docs.citrix.com/en-us/netscaler-cpx/12/deploy-using-docker-image-file.html)
 
 ```
-  cpx:												# Service Name
-    image: "store/citrix/netscalercpx:12.0-41.16"	# Docker container image to use from Citrix' registery
-    environment:									# Environment Variables local to the container
-      EULA: "yes"									# same as export EULA="yes" as a pre-req for CPX to work
-    restart: always									# Restart the service if it fails or the host reboots
-    cap_add:										# Add specific container kernel capabilities https://docs.docker.com/engine/security/security/#linux-kernel-capabilities
-      - NET_ADMIN									# Perform various network-related operations https://linux.die.net/man/7/capabilities
-    ulimits:										# Override the default (resource) ulimits for a container	
-      core: -1										# Use unlimited CPU, up to the amount available on the host system.
-    networks:										# This describes the docker networks the containers will be part of
-      sandbox:										# Docker network's name
-        ipv4_address: "192.168.13.20"				# Static IP address of this service/container. You can leave this key:value out and to obtain an IP from Docker's IPAM
-    ports:											# Exposed ports mapped to the host from the container. 
+  cpx:                                               # Service Name
+    image: "store/citrix/netscalercpx:12.0-41.16"    # Docker container image to use from Citrix' registery
+    environment:									                   # Environment Variables local to the container
+      EULA: "yes"									                   # same as 'export EULA="yes"' as a pre-req for CPX to work
+    restart: always                                  # Restart the service if it fails or the host reboots
+    cap_add:                                         # Add specific container kernel capabilities https://docs.docker.com/engine/security/security/#linux-kernel-capabilities
+      - NET_ADMIN                                    # Perform various network-related operations https://linux.die.net/man/7/capabilities
+    ulimits                                          # Override the default (resource) ulimits for a container	
+      core: -1                                       # Use unlimited CPU, up to the amount available on the host system.
+    networks:                                        # This describes the docker networks the containers will be part of
+      sandbox:                                       # Docker network's name
+        ipv4_address: "192.168.13.20"                # Static IP address of this service/container. You can leave this key:value out and to obtain an IP from Docker's IPAM
+    ports:                                           # Exposed ports mapped to the host from the container. 
       - "10000-10050:10000-10050"					
       - "9080:80"
-    hostname: ns-adc								# Desired hostname of the container
+    hostname: ns-adc                                 # Desired hostname of the container
 ```
 
 ### Cloud9 IDE
 
 ```
-  nitro-ide:										# Service Name
-    image: "mayankt/nitro-ide"						# Docker container image to use from Citrix' registery
-    restart: always									# Restart the service if it fails or the host reboots
-    dns: 8.8.8.8									# Specific DNS server to use for host name resolution from within the container
-    networks:										# This describes the docker networks the containers will be part of
-      sandbox:										# Docker network's name
-        ipv4_address: "192.168.13.10"				# Static IP address of this service/
-    ports:											# Exposed ports mapped to the host from the container. 
+  nitro-ide:                          # Service Name
+    image: "mayankt/nitro-ide"        # Docker container image to use from Citrix' registery
+    restart: always                   # Restart the service if it fails or the host reboots
+    dns: 8.8.8.8                      # Specific DNS server to use for host name resolution from within the container
+    networks:                         # This describes the docker networks the containers will be part of
+      sandbox:                        # Docker network's name
+        ipv4_address: "192.168.13.10" # Static IP address of this service/
+    ports:                            # Exposed ports mapped to the host from the container. 
       - "9090:80"
       - "9091:8000"
-    links:											# Link to containers in another service given service name and/or a link alias ("SERVICE:ALIAS"). "ping web-a" will ping the webserver-a service from within the container.
+    links:                            # Link to containers in another service given service name and/or a link alias ("SERVICE:ALIAS"). "ping web-a" will ping the webserver-a service from within the container.
       - "cpx"
       - "webserver-a:web-a"
       - "webserver-b:web-b"
-    volumes:										# Volume mounts local to the host mapped to a directory local to the container with read/write access (rw)
+    volumes:                          # Volume mounts local to the host mapped to a directory local to the container with read/write access (rw)
         - ${DATA_DIR}:/workspace:rw      
-    hostname: nitro-ide								# Desired hostname of the container
+    hostname: nitro-ide               # Desired hostname of the container
 ```
-> Note you may have to uncomment the `volumes` section to mount volumes in the docker file. 
+> Note you may have to uncomment the `volumes` section to mount volumes in the docker file that is pulled from the repository. Use `nano` to remove the `#` from the `volumes:` block. 
 
 ### Step 2
 

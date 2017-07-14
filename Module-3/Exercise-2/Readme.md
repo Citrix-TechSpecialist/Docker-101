@@ -87,7 +87,9 @@ You should be greeted with Cloud9's loading page and then ultimately the IDE edi
 
 You can select any file to open and edit it or to examine it. You even have access to the container's CLI terminal in the bottom pane. In the container's CLI pane within Cloud9 IDE, enter the following commands: 
 
-`git clone -b cpx-101 https://github.com/Citrix-TechSpecialist/NetScalerNITRO.git`
+```
+git clone -b cpx-101 https://github.com/Citrix-TechSpecialist/NetScalerNITRO.git
+```
 
 ### Step 3
 
