@@ -8,12 +8,12 @@ To pull an image down locally onto a host, run the following command:
 
 `docker pull mayankt/webserver:a`
 
-A break down of the command as follows: 
+Here is a break down of the command as follows: 
 
   * `docker pull`: Is a docker command that tells docker engine to pull an image down frosomewher
   * `mayankt/webserver:a`: Is the image name. By default, if a full fqnd is not specified, iis assumed you are pulling the image from docker hub. In this case, you will be pulling aimage from my repository [mayankt](https://hub.docker.com/r/mayankt/webserver/) with aimage titles `webserver` whith the tag of `a`. 
 
-  * Tagging images can help with versioning of your docker images and many other use cases as well. 
+    * Tagging images can help with versioning of your docker images and many other use cases as well. 
 
  Once you run the command you should see an output similar to this: 
 
@@ -32,7 +32,7 @@ d2d3a856c0da: Pull complete
 f128b2a739b4: Pull complete 
 1341f98ff817: Pull complete 
 ```
-Which indicates that the image is being pulled from docker hub locally to your docker host. 
+Which indicates that the image is being pulled from docker hub locally onto your docker host. 
 
 ### Step 2
 
@@ -40,25 +40,25 @@ Type the following command to see a list of all images stored locally on your ho
 
 `docker images`
 
-You output should resemble : 
+Your output should resemble : 
 
 ```
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 mayankt/webserver   a                   18f05d0cd921        2 months ago        27.9MB
 ```
 
-Which shows a 27.9 MB large docker image stored locally that can be run into instances of docker containers. All the `Pull complete` outputs from the `docker pull` command above are the layers being pulled from Docker Hub of which constitute the `mayankt/webserver:a` docker image.
+This output shows a 27.9 MB large docker image stored locally that can be run into instances of docker containers. All the `f128b2a739b4: Pull complete` outputs from the `docker pull` command above are the layers being pulled from Docker Hub of which constitute the `mayankt/webserver:a` docker image.
 
 ### Conclusion
 
-A simple `docker pull < image-name > ` commands shows how you can pull a docker image from the cloud directly. It's not use until you run a container with it which we will do in the [next Exercise](../Exercise-2).
+A simple `docker pull < image-name > ` commands shows how you can pull a docker image from the cloud directly. It's not used until you run a container with it which we will do in the [next Exercise](../Exercise-2).
 
 ![docker-pull](images/docker-pull.gif)
 
 ### Shortcuts
 
-[Table of Contents](../../)
-[Module-1: Exercise 2](../Exercise-2)
-[Module-1](../../Module-1)
-[Module-2](../../Module-2)
-[Module-3](../../Module-3)
+1. [Module 0-A: Install Docker Locally](https://hub.docker.com/?next=https%3A%2F%2Fhub.docker.com%2F)
+2. [Module 0-B: Access your Docker Lab Development Box](../../Module-0)
+2. [Module 1: Running Docker Containers](../../Module-1)
+3. [Module 2: Creating Custom Images from Dockerfiles](../../Module-2)
+4. [Module 3: Using Docker Compose](../../Module-3)

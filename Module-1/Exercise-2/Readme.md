@@ -4,16 +4,14 @@ Lets convert a docker image into a running instance of a docker container to hos
 
 ### Step 1
 
-We will now issue [`docker run`](https://docs.docker.com/engine/reference/run/) commands to run containers. Type the following command to host a website on the docker host on port `10000`.  
+We will issue [`docker run`](https://docs.docker.com/engine/reference/run/) commands to run containers. Type the following command to host a website on the docker host on port `10000`.  
 
 `docker run -dt --restart=always --name=cpx-blog -p 10000:80 mayankt/cpx-blog`
-
-The break down of this command as follows:
 
 Here is the breakdown of the command from above: 
 
 * `docker run -dt` 
-    * This will run the container detached with a terminal in the background. Later we will see how we can attach to this container's CLI, but for now we will have the container running detached in the background as a daemon. 
+    * This will run the container detached in the background. Later we will see [how we can attach to this container's terminal](https://stackoverflow.com/questions/30172605/how-to-get-into-a-docker-container), but for now we will have the container running detached in the background as a daemon. 
 
 * `--restart=always`
     * This will restart the container automatically if it crashes or if and when docker/host restart.
@@ -130,7 +128,9 @@ This concludes how to run a container with `docker run` command, how to attach t
 
 ### Shortcuts
 
-[Table of Contents](../../)
-[Exercise 21](../Exercise-1)
-[Module-1](../)
-[Module-2](../../Module-2)
+1. [Module 0-A: Install Docker Locally](https://hub.docker.com/?next=https%3A%2F%2Fhub.docker.com%2F)
+2. [Module 0-B: Access your Docker Lab Development Box](../../Module-0)
+2. [Module 1: Running Docker Containers](../../Module-1)
+3. [Module 2: Creating Custom Images from Dockerfiles](../../Module-2)
+4. [Module 3: Using Docker Compose](../../Module-3)
+

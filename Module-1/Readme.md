@@ -1,6 +1,6 @@
 # Module 1: Running Docker Containers
 
-Once you have Docker installed locally or have gained access to the sandbox host, you can verify you have docker installed by simply typing `docker --version` to see an output similar to: 
+Once you have Docker installed locally or have gained access to the sandbox host, you can verify you installation by simply typing `docker --version` to see an output similar to: 
 
 ```
 Docker version 17.06.0-ce, build 02c1d87
@@ -19,18 +19,18 @@ You can store docker images in several places:
   4. [Private Docker registries](https://docs.docker.com/registry/deploying/#storage-customization)
   5. [In a tar archive](https://docs.docker.com/engine/reference/commandline/save/)
 
- We will mainly be concerning ourselves with **#1** pulling images from Docker Hub in this tutorial. 
+ We will mainly be concerning ourselves with **#1** pulling images from Docker Hub.
 
 ## Exercises 
 
-Navigate to and complete the following exercises within Module 1:
+Navigate to and complete the following exercises within **Module 1**.
 
 1. [Pulling from Docker Hub](./Exercise-1)
 2. [Running a Container](./Exercise-2)
 
 # Reset the Sandbox Environment 
 
-Once completed Module 1, reset the environment by typing in the following command in your sandbox environment: 
+Once you have completed **Module 1**, reset the environment by typing in the following command in your sandbox environment: 
 
 `sudo /dockerclean.sh`
 
@@ -45,6 +45,8 @@ docker volume rm $(docker volume ls -qf)
 
 ### Shortcuts
 
-[Table of Contents](../)
-[Module 2](../Module-2)
-[Module 3](../Module-3)
+1. [Module 0-A: Install Docker Locally](https://hub.docker.com/?next=https%3A%2F%2Fhub.docker.com%2F)
+2. [Module 0-B: Access your Docker Lab Development Box](../../Module-0)
+2. [Module 1: Running Docker Containers](../../Module-1)
+3. [Module 2: Creating Custom Images from Dockerfiles](../../Module-2)
+4. [Module 3: Using Docker Compose](../../Module-3)

@@ -34,12 +34,15 @@ The desired environment will have the following topology:
 
 ![Nitro Dev-box topology](./images/topology.jpg) 
 
-Services include: 
+**Services include: **
 
-**Webserver A** which is a static containerized HTTP website
-**Webserver B** which is another static containerized HTTP website
-**NetScaler CPX** which will be the target NetScaler to send NITRO API calls to load balance webserver A and webserver B.
-**Cloud9 IDE** which is web-based Interactive Developer Environment that allows for rapid scripting and coding through a web browser.
+  * **Webserver A** which is a static containerized HTTP website
+
+  * **Webserver B** which is another static containerized HTTP website
+
+  * **NetScaler CPX** which will be the target NetScaler to send NITRO API calls to load balance webserver A and webserver B.
+  
+  * **Cloud9 IDE** which is web-based Interactive Developer Environment that allows for rapid scripting and coding through a web browser.
 
   >All the services above will be isolated in a dedicated [Docker Network](https://docs.docker.com/engine/userguide/networking/). Individual web interfaces that we will need direct external access to will have [external ports mapped](https://docs.docker.com/compose/compose-file/compose-file-v2/#ports) to the container for access from the underlay network (basically your host's LAN).
 

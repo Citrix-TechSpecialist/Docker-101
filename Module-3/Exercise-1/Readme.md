@@ -19,29 +19,29 @@ cd nitro-ide
 # View the file contents of docker-compose.yml
 nano docker-compose.yml
 ```
-[Here](./scripts/docker-compose.yml) is a copy of the file for reference. It is recommended you open it in another tab in your browser to follow along.  
+Here is a copy of the [docker-compose.yml](./scripts/docker-compose.yml) file for reference. It is recommended you open it in another tab in your browser to follow along.  
 
 Below are the desired services we want to configure and deploy.
 
-1: [Webserver A](https://hub.docker.com/r/mayankt/webserver/) that is a static website site
-2: [Webserver B](https://hub.docker.com/r/mayankt/webserver/) that is a different static website
-3: [Cloud9 IDE](https://c9.io/) which we will use to write code and execute python scripts to automate configuration of NetScaler CPX. 
-4: [NetScaler CPX](https://microloadbalancer.com) a NetScaler in a docker container that share the same API as other NetScaler ADCs.  
+  1. [Webserver A](https://hub.docker.com/r/mayankt/webserver/) that is a static website site
+  2. [Webserver B](https://hub.docker.com/r/mayankt/webserver/) that is a different static website
+  3. [Cloud9 IDE](https://c9.io/) which we will use to write code and execute python scripts to automate configuration of NetScaler CPX. 
+  4. [NetScaler CPX](https://microloadbalancer.com) a NetScaler in a docker container that share the same API as other NetScaler ADCs.  
 
 ### Explaining the docker-compose.yml File
 
-Below are snippets of the `docker-compose.yml` with comments (`#`) per line to explain details of the `key` : `value` pairs describing the desired deployment. 
+Below are snippets of the `docker-compose.yml` with comments (`#`) per line with details of the `key` : `value` pairs describing the desired deployment. 
 
 ### Sandbox Network
 
 With Docker you can define specific container networks. In this case we are creating a [bridge network](https://docs.docker.com/engine/userguide/networking/#bridge-networks) specific to deploying only our desired containers to within a SDN boundary internal to the host. 
 
 ```
-networks:								# This defines that below are settings for docker networks
-  sandbox: 								# Name of the network
-    driver: bridge 						# The type of network driver to use 
-    ipam: 								# Details of the network and IP space
-      config: 							# Configuration parameters 
+networks:                             # This defines that below are settings for docker networks
+  sandbox:                            # Name of the network
+    driver: bridge                    # The type of network driver to use 
+    ipam:                             # Details of the network and IP space
+      config:                         # Configuration parameters 
         - subnet: "192.168.13.0/24" 	# The desired subnet of the docker network
 ```
 
@@ -130,9 +130,9 @@ Now continue on to [Exercise-2](../Exercise-2) to compose your docker environmen
 
 ### Shortcuts
 
-[Table of Contents](../../)
-[Module-3: Exercise 2](../Exercise-2)
-[Module-1](../../Module-1)
-[Module-2](../../Module-2)
-
+1. [Module 0-A: Install Docker Locally](https://hub.docker.com/?next=https%3A%2F%2Fhub.docker.com%2F)
+2. [Module 0-B: Access your Docker Lab Development Box](../../Module-0)
+2. [Module 1: Running Docker Containers](../../Module-1)
+3. [Module 2: Creating Custom Images from Dockerfiles](../../Module-2)
+4. [Module 3: Using Docker Compose](../../Module-3)
 

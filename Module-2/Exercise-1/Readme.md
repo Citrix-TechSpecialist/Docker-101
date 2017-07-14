@@ -32,7 +32,7 @@ ls -l
 cat Dockerfile
 ```
 
-Once you `cat` the file, you will notice the following content in the [Dockerfile](https://github.com/Citrix-TechSpecialist/GoLang-cpx/blob/master/Dockerfile): 
+Once you `cat` the file, you will notice the following content in the [Dockerfile](./scripts/Dockerfile): 
 
 ```
 FROM fnichol/uhttpd
@@ -153,12 +153,12 @@ RUN echo "find /www -type f -exec sed -i \"s/All rights reserved./Hosted by cont
 ```
   This command simply creates a script `/tmp/update.sh` which finds all files in the `/www` directory and replaces strings in them which match the pattern "*All rights reserved.*" with the string "*Hosted by container: ${HOSTNAME}*" where `${HOSTNAME}` is a built in environmental variable in the running container that holds the container's unique host name. By default the hostname of any container is it's short uuid. This script will essentially replace the footer of all web pages which state "All rights reserved" with which container is specifically hosting the website.
    
-   >Note that this command creates a script `/tmp/update.sh` but does not execute it. This command needs to be executed in a final running state container, not an intermediate step in building the final image. Hence this script created here is executed in the `ENTRYPOINT` step below.
+     >Note that this command creates a script `/tmp/update.sh` but does not execute it. This command needs to be executed in a final running container state, not during an intermediate step when building the final image. Hence this script created here is executed in the `ENTRYPOINT` step below.
 
 ```
 ENTRYPOINT /tmp/update.sh && /usr/sbin/run_uhttpd -f -p 80 -h /www
 ```
- This command dictates what to execute when the container starts. Note that the container's lifespan is directly dependent on the service it runs on start, in our case first the `/tmp/update.sh` script executes to update footers on all html pages, then the httpd (found at `/usr/sbin/run_uhttpd`) is executed. The entrypoint script basically starts the webservice hosting content in `/www`. If for whatever reason the uhttpd service itself fails, hangs, or stops, the running container will stop as well.
+ This command dictates what to execute when the container starts. Note that the [container's lifespan](https://medium.com/@lherrera/life-and-death-of-a-container-146dfc62f808) is directly dependent on the service it runs on start, in our case first the `/tmp/update.sh` script executes to update footers on all html pages, then the httpd (found at `/usr/sbin/run_uhttpd`) is executed. The entrypoint script basically starts the webservice hosting content in `/www`. If for whatever reason the uhttpd service itself fails, hangs, or stops, the running container will stop as well.
 
 With the updated changes in our Dockerfile, we have introduced a new script into the container `/tmp/update.sh` which updated some HTML text on our website and is executed upon running the container as defined by our `ENTRYPOINT` statement. 
 
@@ -188,8 +188,8 @@ Now lets move on to [Module-2: Exercise 2](../Exercise-2) to run the containers 
 
 ### Shortcuts
 
-[Table of Contents](../../)
-[Module-2: Exercise 2](../Exercise-2)
-[Module-1](../../Module-1)
-[Module-2](../../Module-2)
-[Module-3](../../Module-3)
+1. [Module 0-A: Install Docker Locally](https://hub.docker.com/?next=https%3A%2F%2Fhub.docker.com%2F)
+2. [Module 0-B: Access your Docker Lab Development Box](../../Module-0)
+2. [Module 1: Running Docker Containers](../../Module-1)
+3. [Module 2: Creating Custom Images from Dockerfiles](../../Module-2)
+4. [Module 3: Using Docker Compose](../../Module-3)
