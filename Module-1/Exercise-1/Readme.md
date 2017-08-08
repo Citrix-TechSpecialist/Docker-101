@@ -10,10 +10,10 @@ To pull an image down locally onto a host, run the following command:
 
 Here is a break down of the command as follows: 
 
-  * `docker pull`: Is a docker command that tells docker engine to pull an image down frosomewher
-  * `mayankt/webserver:a`: Is the image name. By default, if a full fqnd is not specified, iis assumed you are pulling the image from docker hub. In this case, you will be pulling aimage from my repository [mayankt](https://hub.docker.com/r/mayankt/webserver/) with aimage titles `webserver` whith the tag of `a`. 
+  * `docker pull`: Is a docker command that tells docker engine to pull an image down from somewhere
+  * `mayankt/webserver:a`: Is the image name. By default, if a full FQDN is not specified, it is assumed you are pulling the image from docker hub. In this case, you will be pulling an image from my repository [mayankt](https://hub.docker.com/r/mayankt/webserver/) with an image titled `webserver` with the tag of `a`. 
 
-    * Tagging images can help with versioning of your docker images and many other use cases as well. 
+    * Tagging images can help with versioning of your docker images and many other CI/CD use cases as well. 
 
  Once you run the command you should see an output similar to this: 
 
