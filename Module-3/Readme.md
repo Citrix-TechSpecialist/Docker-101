@@ -4,7 +4,7 @@ By this point, it is assumed you have completed [Module 1](../Module-1) and [Mod
 
 It should also be obvious at this point that deploying docker containers at scale by hand with `docker run` commands can be very involved and, at time, too complicated with multiple lines of `docker ..` commands to deploy a large environment. Luckily, docker containers are not meant to be deployed via individual commands, rather they are often deployed to a desired state using various other tools that help automate and/or orchestrate microservices backed by docker containers. Some of these accompanying tools are provided below for reference. 
 
-* Kubernetes -- Google's container orchestration and automation solution to schedule and maintain service state of docker containers. 
+* [Kubernetes](https://kubernetes.io/) -- Google's container orchestration and automation solution to schedule and maintain service state of docker containers. 
 * [Mesos](https://mesosphere.com/why-mesos/?utm_source=adwords&utm_medium=g&utm_campaign=43843512431&utm_term=mesos&utm_content=196225818929&gclid=CjwKEAjwtJzLBRC7z43vr63nr3wSJABjJDgJ_9xn3RWHnkH_nDjxQs1X8U6YgQ0drZPoOTfLv9-4hhoCqN3w_wcB)/[Marathon](https://mesosphere.github.io/marathon/) -- Another Automation platform (Mesos) with an orchestration framework (Marathon) to ensure service state of docker containers. 
 * [Rancher](http://rancher.com/) -- Opensource container management solution that makes it easy to deploy and manage containers in their own 'Cattle environments' and can even operate and manage other orchestration platforms like Kubernetes, Mesos/Marathon, and Docker Swarm. 
 * [Docker Swarm](https://docs.docker.com/swarm/overview/) -- Docker's solution to automation and orchestration of clustered resources to provide a pool of Docker hosts into a single, virtual Docker host. 
@@ -34,7 +34,7 @@ The desired environment will have the following topology:
 
 ![Nitro Dev-box topology](./images/topology.jpg) 
 
-**Services include: **
+**Services include:**
 
   * **Webserver A** which is a static containerized HTTP website
 
